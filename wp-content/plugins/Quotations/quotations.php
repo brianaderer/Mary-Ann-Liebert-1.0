@@ -35,10 +35,38 @@ function register_quotations_post_type() {
         'has_archive'         => true,
         'hierarchical'        => false,
         'menu_position'       => null,
-        'supports'            => array( 'title', 'author' ),
+        'supports'            => array( 'author' ),
         'menu_icon'           => 'dashicons-format-quote', // Use a dashicon as the menu icon (optional)
     );
 
     register_post_type( 'quotations', $args );
 }
 add_action( 'init', 'register_quotations_post_type' );
+
+//filter the 'save post' function for quotations, and edit the title programmatically so that it can be differentiated on the quotations list page
+
+function add_custom_title( $data, $postarr ) {
+    if( $data['post_type'] == 'quotations' ) {
+        if(empty($data['post_title']) || $data['post_title'] == 'Auto Draft') {
+            if(array_key_exists('acf', $postarr)){
+                $newArray = [];
+                $keys = array_keys($postarr['acf']);
+                foreach ($keys as $key){
+                    $newArray[get_field_object($key)['name']] = $postarr['acf'][$key];
+                }
+                $quote_pieces = explode(" ", $newArray['quotation']);
+                $first_part = implode(" ", array_splice($quote_pieces, 0, 3));
+                $author_pieces = explode(" ", $newArray['author']);
+                $second_part = array_pop($author_pieces);
+                $newTitle = $first_part . '... ' . $second_part;
+
+            }
+            if( isset( $newTitle ) ){
+                $data['post_title'] = $newTitle;
+            }
+
+        }
+    }
+    return $data;
+}
+add_filter( 'wp_insert_post_data', 'add_custom_title', 10, 2 );

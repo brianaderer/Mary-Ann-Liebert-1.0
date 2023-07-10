@@ -78,9 +78,6 @@ $table_prefix = 'wp_';
  *
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
-if ( ! defined( 'WP_DEBUG' ) ) {
-	define( 'WP_DEBUG', false );
-}
 
 
 define('AUTH_KEY',         '8Q5otyt+HzCT5SQ+T9gDcgbd6yrX6DVAITh9fpRi6NI1M0/1yUrwfspdUdmHC8tavZijAWOqYyaQkmYbeiFWWQ==');
@@ -101,3 +98,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
+
+
+// Enable WP_DEBUG mode
+//define( 'WP_DEBUG', true );
+
+// Enable Debug logging to the /wp-content/debug.log file
+//define( 'WP_DEBUG_LOG', true );
