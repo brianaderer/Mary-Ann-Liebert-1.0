@@ -29,7 +29,7 @@
             "aria-label": "",
             "type": "true_false",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -81,5 +81,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1689007898
+    "modified": 1689012272
 }

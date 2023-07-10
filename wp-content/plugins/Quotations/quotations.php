@@ -35,7 +35,7 @@ function register_quotations_post_type() {
         'has_archive'         => true,
         'hierarchical'        => false,
         'menu_position'       => null,
-        'supports'            => array( 'author' ),
+        'supports'            => array( 'author', 'title' ),
         'menu_icon'           => 'dashicons-format-quote', // Use a dashicon as the menu icon (optional)
     );
 
@@ -48,6 +48,7 @@ add_action( 'init', 'register_quotations_post_type' );
 function add_custom_title( $data, $postarr ) {
     if( $data['post_type'] == 'quotations' ) {
         if(empty($data['post_title']) || $data['post_title'] == 'Auto Draft') {
+
             if(array_key_exists('acf', $postarr)){
                 $newArray = [];
                 $keys = array_keys($postarr['acf']);
@@ -59,10 +60,12 @@ function add_custom_title( $data, $postarr ) {
                 $author_pieces = explode(" ", $newArray['author']);
                 $second_part = array_pop($author_pieces);
                 $newTitle = $first_part . '... ' . $second_part;
+                $newName = $second_part . '-' . implode('-', (explode(' ' ,$first_part)));
 
             }
             if( isset( $newTitle ) ){
                 $data['post_title'] = $newTitle;
+                $data['post_name'] = $newName;
             }
 
         }
