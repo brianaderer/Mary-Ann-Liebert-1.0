@@ -18,4 +18,5 @@ In 'Theme' -> 'Customize' set your homepage to 'static home page' and Wordpress 
  - The ACF definitions are housed in json files in the 'acf-json' folder in the main theme directory. This cuts down on database calls
  - Quotations are auto-titled and named with a concatonation of the author and first few words of the quotation via a hook into the post update function
  - Front end output is modularized via template parts, see the 'template-parts' folder. This allows for hierarchical calling and automatic fallbacks, granting extensibility and maximum code reuse
+ - 'Quotations Created' timestamp currently defaults to America/NY, plan to extend later with a browser query to automatically deliver information in browser based timezone
 
