@@ -35,7 +35,7 @@ function register_quotations_post_type() {
         'has_archive'         => true,
         'hierarchical'        => false,
         'menu_position'       => null,
-        'supports'            => array( 'author', 'title' ),
+        'supports'            => array( 'author' ),
         'menu_icon'           => 'dashicons-format-quote', // Use a dashicon as the menu icon (optional)
     );
 

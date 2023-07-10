@@ -6,6 +6,6 @@
     <?php wp_head(); ?>
 </head>
 <header>
-    <h1>Header!!!</h1>
+
 </header>
 <body <?php body_class(); ?>>
