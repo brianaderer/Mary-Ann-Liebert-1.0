@@ -7,17 +7,26 @@ get_header()?>
 <div id="controls-carousel" class="relative w-full" data-carousel="static">
     <!-- Carousel wrapper -->
         <div class="relative h-[80vh] overflow-hidden rounded-lg my-10 mx-[10%] bg-secondary drop-shadow-xl">
-            <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+            <?php
+                $indicator_offset = 0;
+                if ( have_posts() ) : while ( have_posts() ) : the_post();
+                $id = get_the_ID();
+                $active = get_field('active', $id);
+                ?>
 
-                <?php get_template_part('template-parts/quotation');?>
+                <?php
+                if( !$active ) : $indicator_offset++; else:
+                get_template_part('template-parts/quotation');?>
 
-            <?php endwhile; ?>
+            <?php
+            endif;
+            endwhile; ?>
             <!-- Slider indicators -->
             <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
 
                 <?php
                 $counter = 0;
-                while($wp_query->post_count > $counter ): ?>
+                while($wp_query->post_count - $indicator_offset > $counter ): ?>
                     <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide <?= $counter ?>" data-carousel-slide-to="<?= $counter ?>"></button>
                 <?php
                     $counter++;
