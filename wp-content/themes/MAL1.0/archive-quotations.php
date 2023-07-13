@@ -15,9 +15,11 @@ get_header()?>
                 ?>
 
                 <?php
-                if( !$active ) : $indicator_offset++; else:
-                get_template_part('template-parts/quotation');?>
-
+                if( !$active ) : $indicator_offset++; else: ?>
+                    <div class="hidden duration-700 ease-in-out flex flex-row items-center" data-carousel-item>
+                        <?php get_template_part('template-parts/quotation');?>
+                    </div>
+                            <!-- /.hidden duration-700 ease-in-out -->
             <?php
             endif;
             endwhile; ?>

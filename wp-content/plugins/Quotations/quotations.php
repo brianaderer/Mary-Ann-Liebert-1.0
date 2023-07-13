@@ -6,6 +6,12 @@ Version: 1.0
 Author: Brian Aderer
 */
 
+/**
+ * Define constants.
+ */
+define( 'QUOTATIONS_DIR', plugin_dir_path( __FILE__ ) );
+define( 'QUOTATIONS_URL', plugin_dir_url( __FILE__ ) );
+
 // Register the "quotations" custom post type
 function register_quotations_post_type() {
     $labels = array(
@@ -73,3 +79,20 @@ function add_custom_title( $data, $postarr ) {
     return $data;
 }
 add_filter( 'wp_insert_post_data', 'add_custom_title', 10, 2 );
+
+//function include_template_files() {
+//    $plugindir = QUOTATIONS_DIR;
+//
+//    if (is_post_type_archive( 'quotation' )) {
+//        $templatefilename = 'archive-quotation.php';
+//        $template = $plugindir . '/templates/' . $templatefilename;
+//        return $template;
+//    }
+//
+//    if ('quotation' == get_post_type() ){
+//        $templatefilename = 'single-quotation.php';
+//        $template = $plugindir . '/templates/' . $templatefilename;
+//        return $template;
+//    }
+//}
+//add_filter( 'template_include', 'include_template_files' );
