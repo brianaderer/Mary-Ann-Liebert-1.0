@@ -4,7 +4,7 @@ Basic wordpress theme to create a custom post type for 'quotations', store the d
 
 ##Dependencies
 
-The theme depends on two plugins - 'ACF' and the custom 'Quotations' plugin which is part of this package.
+The theme depends on two plugins - 'ACF' and the custom 'Quotations' plugin which is part of this package, as well as a local install of NodeJs. Follow installation directions for setup.
 
 ##Usage
 
