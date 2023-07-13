@@ -16,7 +16,12 @@ module.exports = {
         colors: {
             'primary' : '#892035',
             'secondary': '#f1f1f0'
-        }
+        },
+        extend: {
+            fontFamily: {
+                "roboto": ['Roboto Condensed', 'sans-serif']
+            }
+        },
     },
     variants: {},
     plugins: [

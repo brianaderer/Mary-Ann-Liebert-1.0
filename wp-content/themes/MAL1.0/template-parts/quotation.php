@@ -5,12 +5,19 @@ $fields = get_fields($id);
 <div class="absolute block h-full w-full p-20 flex flex-col justify-center items-center">
             <?php if($fields['active']):?>
 
-                    <div class="text-center">
-                        <?= $fields['quotation']?> <br>
-                        <?= '-- ' . $fields['author']?>
+                    <div class="text-center w-full flex flex-col items-center justify-center">
+                        <h3 class="font-roboto font-light text-4xl max-w-[70%]">
+                            <?= $fields['quotation']?>
+                        </h3>
+                        <!-- /.font-roboto -->
+                            <br>
+                        <p class="font-roboto font-regular text-xl">
+                            <?= '-- ' . $fields['author']?>
+                        </p>
+                        <!-- /.font-roboto font-regular -->
                     </div>
             <?php endif; ?>
-        <div class="absolute bottom-10 right-10 p-10">
+        <div class="absolute bottom-10 right-10 p-10 font-roboto font-light">
             <?= 'Posted By: ' . get_the_author() ?><br>
             <?= get_post_datetime()->setTimezone(new DateTimeZone('America/New_York'))->format('M d Y h:i:s A') ?>
         </div>
