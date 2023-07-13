@@ -79,20 +79,3 @@ function add_custom_title( $data, $postarr ) {
     return $data;
 }
 add_filter( 'wp_insert_post_data', 'add_custom_title', 10, 2 );
-
-//function include_template_files() {
-//    $plugindir = QUOTATIONS_DIR;
-//
-//    if (is_post_type_archive( 'quotation' )) {
-//        $templatefilename = 'archive-quotation.php';
-//        $template = $plugindir . '/templates/' . $templatefilename;
-//        return $template;
-//    }
-//
-//    if ('quotation' == get_post_type() ){
-//        $templatefilename = 'single-quotation.php';
-//        $template = $plugindir . '/templates/' . $templatefilename;
-//        return $template;
-//    }
-//}
-//add_filter( 'template_include', 'include_template_files' );
